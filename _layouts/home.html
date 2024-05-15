@@ -1,10 +1,6 @@
-{% for post in site.pages %}
-    {% if post.title %}
-        <ul>
-        <li><a href="{{site.baseurl}}/{{post.url}}">{{ post.title }}</a></li>
-        </ul>
-    {% endif %}
-{% endfor %}
+---
+layout: "wrapper"
+---
 {% for person in site.data.people %}
     {{ person.name }}, {{person.occupation}}<br>
 {% endfor %}
@@ -14,9 +10,10 @@
     <li><a href="{{site.baseurl}}/{{post.url}}">{{ post.title }}</a></li>
     </ul>
 {% endfor %}
-
-{% for file in site.static_files %}
-    {% if file.image %}
-        <img src="{{site.baseurl}}/assets/img/{{ file.name }}"><br>
-    {% endif %}
-{% endfor %}
+<div class="logos">
+    {% for file in site.static_files %}
+        {% if file.image %}
+            <img src="{{site.baseurl}}{{ file.path }}">
+        {% endif %}
+    {% endfor %}
+</div>
